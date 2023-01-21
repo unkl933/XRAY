@@ -313,6 +313,43 @@ END
 
 #
 #buatvmess
+cat>/etc/xray/vmess-$user-tls.json<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "443",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "http://tsel.me/worryfree",
+      "type": "none",
+      "host": "",
+      "tls": "tls"
+}
+EOF
+cat>/etc/xray/vmess-$user-nontls.json<<EOF
+      {
+      "v": "2",
+      "ps": "${user}",
+      "add": "${domain}",
+      "port": "80",
+      "id": "${uuid}",
+      "aid": "0",
+      "net": "ws",
+      "path": "http://tsel.me/worryfree",
+      "type": "none",
+      "host": "",
+      "tls": "none"
+}
+EOF
+vmess_base641=$( base64 -w 0 <<< $vmess_json1)
+vmess_base642=$( base64 -w 0 <<< $vmess_json2)
+xrayv2ray1="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
+xrayv2ray2="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
+systemctl restart xray.service
+service cron restart
+
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
 echo -e "====== XRAY MANTAP Multi Port=======" | tee -a /etc/log-create-user.log
@@ -365,7 +402,9 @@ echo -e "Protokol VPN: VMESS" | tee -a /etc/log-create-user.log
 echo -e "Alter ID: 0" | tee -a /etc/log-create-user.log
 echo -e "Network: WS/GRPC" | tee -a /etc/log-create-user.log
 echo -e "====== Path =======" | tee -a /etc/log-create-user.log
-echo -e "=> WS TLS : /xrayvws" | tee -a /etc/log-create-user.log
+echo -e "Link Config WS TLS    : $xrayv2ray1" | tee -a /etc/log-create-user.log
+echo -e "Link Config GRPC TLS  : $xrayv2ray2" | tee -a /etc/log-create-user.log
+echo -e "=> WS TLS : http://tsel.me/worryfree" | tee -a /etc/log-create-user.log
 echo -e "=> GRPC   : vmess-grpc" | tee -a /etc/log-create-user.log
 echo -e "=> OPOK   : ws://bugcom/xrayvws" | tee -a /etc/log-create-user.log
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
