@@ -117,7 +117,7 @@ EOF
 - maka proses install akan berjalan, jangan keluar dari vps
 - jika keluar dari vps saat lagi proses install,maka akan gagal
 ```
-wget https://raw.githubusercontent.com/fisabiliyusri/XRAY-MANTAP/main/setup.sh && chmod +x setup.sh && ./setup.sh
+wget https://raw.githubusercontent.com/unkl933/XRAY/main/setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 6. jika sudah selesai,lalu ketik xmenu untuk menampilkan menu
 <p align="center">
@@ -158,12 +158,12 @@ https://youtu.be/Pwfvwy5Ghcw
 nano /usr/bin/auto-pointing
 ```
 - contoh punya aku
-- tinggal ubah saja yg mantapxsl.my.id menjadi domain punya kamu
+- tinggal ubah saja yg labtek.my.id menjadi domain punya kamu
 ```
-DOMAIN=mantapxsl.my.id
-SUB_DOMAIN=onichan-${sub}.mantapxsl.my.id
-NS_DOMAIN=zerosl-${sub}.mantapxsl.my.id
-CF_ID=slinfinity69@gmail.com
+DOMAIN=labtek.my.id
+SUB_DOMAIN=sg-${sub}.labtek.my.id
+NS_DOMAIN=do-${sub}.labtek.my.id
+CF_ID=clashteam.id9@gmail.com
 CF_KEY=dd2c5e0313f122b3c1833471d469b1025f492
 ```
 - Lalu ubah juga CF_ID= isi dengan alamat email cloudflare kamu
