@@ -18,7 +18,7 @@ wget -O add-akun "https://raw.githubusercontent.com/unkl933/XRAY/main/menu/add-a
 wget -O updatedll "https://raw.githubusercontent.com/unkl933/XRAY/main/menu/updatedll.sh"
 wget -O add-akun "https://raw.githubusercontent.com/unkl933/XRAY/main/menu/add-akun.sh"
 wget -O delete-akun "https://raw.githubusercontent.com/unkl933/XRAY/main/menu/delete-akun.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/unkl933/XRAY/main/xray/certv2ray.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/unkl933/labtek/labtek/xray/certv2ray.sh"
 wget -O restart-xray "https://raw.githubusercontent.com/unkl933/XRAY/main/menu/restart-xray.sh"
 wget -O xmenu "https://raw.githubusercontent.com/unkl933/XRAY/menu/xmenu.sh"
 wget -O auto-pointing "https://raw.githubusercontent.com/unkl933/XRAY/main/menu/auto-pointing.sh"
