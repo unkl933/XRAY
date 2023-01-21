@@ -1,6 +1,16 @@
 #!/bin/bash
 # ==========================================
-
+# ==========================================
+# Color
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+LIGHT='\033[0;37m'
+# ==========================================
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
 
@@ -31,8 +41,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	read -rp "Input Username : " user
     if [ -z $user ]; then
     else
+    user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sort | uniq)
     exp=$(grep -wE "^### $user" "/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
     sed -i "/^### $user $exp/,/^},{/d" /etc/xray/config.json
+    rm -f /etc/xray/vmess-$user-tls.json /etc/xray/vmess-$user-nontls.json
     systemctl restart xray > /dev/null 2>&1
     clear
     echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
