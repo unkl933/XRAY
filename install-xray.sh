@@ -131,7 +131,7 @@ cat > /etc/xray/config.json << END
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/xrayvws"
+                "path": "http://tsel.me/worryfree"
           }
         }
      },
